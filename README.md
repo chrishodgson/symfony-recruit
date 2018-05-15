@@ -10,10 +10,10 @@ Contacts each of which have Activities associated.
 - composer # See https://getcomposer.org/ for more information and documentation.
 
 ### Installation 
-- clone the repository: `git clone https://github.com/chrishodgson/recuit.git` 
-- cd into the recruit folder                     
+- clone the repository: `git clone https://github.com/chrishodgson/recruit.git` 
+- cd into the `recruit` folder                     
 - `composer install` # install dependencies
-- edit the database connection in `.env`
+- edit `DATABASE_URL` in `.env`
 - `bin/console doctrine:database:create` # optional - or manually create the database
 - `bin/console doctrine:migrations:migrate` # apply the schema
 - `bin/console doctrine:fixtures:load` # optional - load some dummy data
