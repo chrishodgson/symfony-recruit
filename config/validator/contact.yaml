@@ -1,0 +1,13 @@
+App\Entity\Contact:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+  properties:
+    mobile:
+      - Regex: '/^[0-9()+ ]*$/'
+    landline:
+      - Regex: '/^[0-9()+ ]*$/'
+    email:
+      - Email: ~
+    linkedin:
+      - Url: ~

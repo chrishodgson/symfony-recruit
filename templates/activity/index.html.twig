@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+    {{ form_errors(form) }}
+    {{ form_widget(form.summary, {'attr': {'class': 'form-control mb-2 mr-sm-2'}}) }}
+    <button type="submit" class="btn btn-primary mb-2">Search</button>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+    <h4>Activities
+        {% if contact is not empty %}
+            - <a href="{{ path('contact_view', {id: contact.id}) }}">{{ contact.name }}</a>
+        {% endif %}</h4>
+
+    <p>
+        {{ include('pagination/total_results.html.twig', {resultsLabel: 'activities'}) }} ~
+        <a href="{{ path('activity_add') }}">New Activity</a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered">
+            {% for item in pagination %}
+                <tr scope="row">
+                    <td><a href="{{ path('activity_view', {id: item.id}) }}">{{ item.summary }}</a></td>
+                    {% if contact is empty %}
+                        <td><a href="{{ path('contact_view', {id: item.contact.id}) }}">{{ item.contact.name }}</a></td>
+                    {% endif %}
+                    <td>{{ item.activityTypeLabel(item.type) }}</td>
+                    <td>{{ item.createdAt|date('j M Y') }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {{ include('pagination/pages.html.twig') }}
+{% endblock %}

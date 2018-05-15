@@ -1,0 +1,26 @@
+
+MVP requirements:
+------------------------
+done:
+- contacts
+- contacts (latest activity)
+- contacts filtered on name and whether they want to be notified
+- list activities (filter by summary)
+- pagination
+- add, delete contacts
+- add, delete activities
+
+Post MVP requirements:
+------------------------
+- Unit tests
+- Functional tests
+- job applications
+- dynamically create a new contact and company whilst adding an activity
+- login/logout
+- contacts search suggestions using ajax lookup
+- edit activity and contact
+- list, add, edit and delete companies
+
+application schema:
+job title, job spec, start date, daily rate, duration, hours, start / end times, days remote,
+contact_id, status (Submitted/On Hold/Successful/Unsuccessful))

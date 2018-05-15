@@ -1,0 +1,68 @@
+
+project dependencies
+------------
+
+# install the initial skeleton
+composer create-project symfony/skeleton recruit
+
+# install the standalone web server
+# to run the server - bin/console server:run
+composer require server
+
+# install security checker - todo check
+# to run the security checker bin/console security:check
+# composer require sec-checker # check packages installed
+
+# install twig
+composer require twig
+
+# install debug
+composer require debug --dev #includes phpunit bridge, profiler, monolog and dump
+# composer unpack debug # optional list constituent packages from debug pack in composer
+# see list of routes - bin/console debug:router
+# see list of services that can be auto wired (injected via type hinting) - bin/console debug:autowiring
+
+# install asset - todo check
+# composer require asset
+
+# install doctrine
+# composer require doctrine
+# bin/console doctrine:database:create # create the db (first edit connection in .env)
+
+# install maker
+# composer require maker
+
+# todo optional
+# bin/console make:entity Company #add entity
+# bin/console make:controller ActivityController #add controller and check /activity route
+# bin/console make:crud Activity #alternative
+
+# install pagination bundle - requires translator
+composer require translator knplabs/knp-paginator-bundle
+
+# install doctrine migrations
+# composer require doctrine/doctrine-migrations-bundle "^1.0" #doctrine migrations
+
+# make and apply the migration
+bin/console make:migration # create the migration
+bin/console doctrine:migrations:migrate # apply the migration
+
+
+# install orm fixtures and faker
+composer require orm-fixtures fzaninotto/Faker --dev
+
+# load the fixtures
+bin/console doctrine:fixtures:load
+
+#composer require symfony/asset
+
+# enable boostrap in twig.yaml and pagination.yaml
+
+# install csrf
+# enable csrf in framework.yaml
+composer require symfony/security-csrf
+
+# install validator
+# enable validation in framework.yaml
+composer require validator
+

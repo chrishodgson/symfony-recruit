@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('contact/search_form.html.twig') }}
+
+    <h4>Contacts</h4>
+
+    <p>
+        {{ include('pagination/total_results.html.twig', {resultsLabel: 'contacts'}) }} ~
+        <a href="{{ path('contact_add') }}">New Contact</a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered">
+            {% for item in pagination %}
+                <tr scope="row">
+                    <td><a href="{{ path('contact_view', {id: item.id}) }}">{{ item.name }}</a></td>
+                    <td>{{ item.company.name }}</td>
+                    <td>
+                        {% if item.landline %}
+                            <a href="tel:{{ item.landline }}">Landline</a>
+                        {% endif %}</td>
+                    <td>{% if item.mobile %}
+                            <a href="tel:{{ item.mobile }}">Mobile</a>
+                        {% endif %}</td>
+                    <td>{% if item.email %}
+                            <a href="{{ "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=" ~ item.email }}">Email</a>
+                        {% endif %}</td>
+                    <td>{% if item.linkedin %}
+                            <a href="{{ item.linkedin }}">LinkedIn</a>
+                        {% endif %}</td>
+                    <td><a href="{{ path('activity_index', {contact: item.id}) }}">
+                            Activities ({{ item.activityCount }})</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {{ include('pagination/pages.html.twig') }}
+
+{% endblock %}

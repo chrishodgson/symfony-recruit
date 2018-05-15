@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h4>{{ contact.name }} - <a href="{{ path('activity_index', {contact: contact.id}) }}">All Activities</a></h4>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <input class="btn btn-secondary btn-sm mb-2" type="submit" value="Delete Contact"
+           onclick="return confirm('Are you sure you want to delete this Contact?')">
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered">
+            <tr scope="row">
+                <th>Company</th>
+                <td>{{ contact.company.name|default('') }}</td>
+            </tr>
+            <tr scope="row">
+                <th>Role</th>
+                <td>{{ contact.role }}</td>
+            </tr>
+
+            <tr scope="row">
+                <th>Details</th>
+                <td>{{ contact.details }}</td>
+            </tr>
+
+            <tr scope="row">
+                <th>Landline</th>
+                <td>
+                    {% if contact.landline %}
+                        <a href="tel:{{ contact.landline }}">{{ contact.landline }}</a>
+                    {% endif %}</td>
+            </tr>
+            <tr scope="row">
+                <th>Mobile</th>
+                <td>{% if contact.mobile %}
+                        <a href="tel:{{ contact.mobile }}">{{ contact.mobile }}</a>
+                    {% endif %}</td>
+            </tr>
+            <tr scope="row">
+                <th>Email</th>
+                <td>{% if contact.email %}
+                        <a href="{{ "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=" ~ contact.email }}">{{ contact.email }}</a>
+                    {% endif %}</td>
+            </tr>
+            <tr scope="row">
+                <th>Linkedin</th>
+                <td>{% if contact.linkedin %}
+                        <a href="{{ contact.linkedin }}">{{ contact.linkedin }}</a>
+                    {% endif %}</td>
+            </tr>
+
+            <tr scope="row">
+                <th>Notify when available?</th>
+                <td>{{ contact.notifyWhenAvailable ? 'Yes' : 'No' }}</td>
+            </tr>
+
+            <tr scope="row">
+                <th>Last Activity</th>
+                <td>{{ contact.latestActivityAt ? contact.latestActivityAt|date('j M Y') : '' }}</td>
+            </tr>
+
+            <tr scope="row">
+                <th>Created</th>
+                <td>{{ contact.createdAt|date('j M Y')}}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('contact/search_form.html.twig') }}
+
+    <h4>Contacts (Latest Activity)</h4>
+
+    <p>
+        {{ include('pagination/total_results.html.twig', {resultsLabel: 'contacts'}) }} ~
+        <a href="{{ path('contact_add') }}">New Contact</a> ~
+        <a href="{{ path('activity_add') }}">New Activity</a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered">
+            {% for item in pagination %}
+                <tr scope="row">
+                    <td><a href="{{ path('contact_view', {id: item.id}) }}">{{ item.name }}</a></td>
+                    <td><a href="{{ path('activity_view', {id: item.latestActivity.id}) }}">{{ item.latestActivity.summary }}</a></td>
+                    <td>{{ item.latestActivity.createdAt|date('j M Y') }}</td>
+                    <td><a href="{{ path('activity_index', {contact: item.id}) }}">All activities
+                            ({{ item.activityCount }})</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {{ include('pagination/pages.html.twig') }}
+{% endblock %}

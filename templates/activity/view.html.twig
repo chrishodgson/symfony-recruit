@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h4>Activity #{{ activity.id }} - <a href="{{ path('activity_index', {contact: activity.contact.id}) }}">All Activities</a></h4>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <input class="btn btn-secondary btn-sm mb-2" type="submit" value="Delete Activity"
+           onclick="return confirm('Are you sure you want to delete this Activity?')">
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered">
+            <tr scope="row">
+                <th>Contact</th>
+                <td><a href="{{ path('contact_view', {id: activity.contact.id}) }}">{{ activity.contact.name }}</a></td>
+            </tr>
+
+            <tr scope="row">
+                <th>Type</th>
+                <td>{{ activity.activityTypeLabel(activity.type) }}</td>
+            </tr>
+
+            <tr scope="row">
+                <th>Summary</th>
+                <td>{{ activity.summary}}</td>
+            </tr>
+
+            <tr scope="row">
+                <th>Transcript</th>
+                <td>{{ activity.transcript }}</td>
+            </tr>
+
+            <tr scope="row">
+                <th>Created</th>
+                <td>{{ activity.createdAt|date('j M Y')}}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,7 @@
+App\Entity\Activity:
+  properties:
+    summary:
+      - NotBlank: ~
+    type:
+      - Choice: { callback: getActivityTypeKeys }
+#    contact:

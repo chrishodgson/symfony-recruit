@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('back_link.html.twig') }}
+
+    <h4>New Activity</h4>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_widget(form) }}
+    <input class="btn btn-primary mb-2" type="submit" value="Add Activity">
+    {{ form_end(form) }}
+{% endblock %}

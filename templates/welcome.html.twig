@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main role="main" class="container">
+        <div class="jumbotron">
+            <h1>Recruit</h1>
+            <p class="lead">Some quick links...</p>
+            <a class="btn btn-light" href="{{ path('activity_add') }}" role="button">New Activity</a>
+            <a class="btn btn-light" href="{{ path('contact_add') }}" role="button">New Contact</a>
+            <a class="btn btn-light" href="{{ path('contact_latest_activity_index') }}" role="button">Contacts (Latest Activity)</a>
+        </div>
+    </main>
+{% endblock %}

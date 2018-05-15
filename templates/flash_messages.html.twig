@@ -1,0 +1,14 @@
+{% for label, messages in app.flashes %}
+    {% set boostrapClass = label %}
+    {% if label == 'notice' %}
+        {% set boostrapClass = 'success' %}
+    {% elseif label == 'error' %}
+        {% set boostrapClass = 'danger' %}
+    {% endif %}
+
+    {% for message in messages %}
+        <div class="alert alert-{{ boostrapClass }}" role="alert">
+            <p>{{ message }}</p>
+        </div>
+    {% endfor %}
+{% endfor %}
