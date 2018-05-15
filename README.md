@@ -12,8 +12,9 @@ Contacts each of which have Activities associated.
 ### Installation 
 - clone the repository: `git clone https://github.com/chrishodgson/recuit.git` 
 - cd into the recruit folder                     
-- edit the database connection in .env
-- bin/console doctrine:database:create # optional - or manually create the database
-- bin/console doctrine:migrations:migrate # apply the schema
-- bin/console doctrine:fixtures:load # optional - load some dummy data
-- bin/console server:run # optional - run the stand alone web server
+- `composer install` # install dependencies
+- edit the database connection in `.env`
+- `bin/console doctrine:database:create` # optional - or manually create the database
+- `bin/console doctrine:migrations:migrate` # apply the schema
+- `bin/console doctrine:fixtures:load` # optional - load some dummy data
+- `bin/console server:run` # optional - run the stand alone web server
