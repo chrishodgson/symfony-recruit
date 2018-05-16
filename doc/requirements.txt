@@ -10,17 +10,18 @@ done:
 - add, delete contacts
 - add, delete activities
 
+- todo list, add and delete companies
+
 Post MVP requirements:
 ------------------------
-- Unit tests
-- Functional tests
-- job applications
 - dynamically create a new contact and company whilst adding an activity
-- login/logout
 - contacts search suggestions using ajax lookup
-- edit activity and contact
-- list, add, edit and delete companies
+- unit tests
+- functional tests
+- edit screens
+- job applications
+- login/logout
 
 application schema:
-job title, job spec, start date, daily rate, duration, hours, start / end times, days remote,
-contact_id, status (Submitted/On Hold/Successful/Unsuccessful))
+job title, job spec, start date, daily rate, duration, hours, days remote, contact_id,
+status (Submitted/On Hold/Successful/Unsuccessful))
