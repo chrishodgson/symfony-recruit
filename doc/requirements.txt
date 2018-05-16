@@ -10,10 +10,10 @@ done:
 - add, delete contacts
 - add, delete activities
 
-- todo list, add and delete companies
 
 Post MVP requirements:
 ------------------------
+- list, add and delete companies
 - dynamically create a new contact and company whilst adding an activity
 - contacts search suggestions using ajax lookup
 - unit tests
