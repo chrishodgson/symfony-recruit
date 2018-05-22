@@ -1,2 +1,8 @@
-config/packages/doctrine.yaml
-config/packages/doctrine_migrations.yaml
+#commands
+git push heroku master
+heroku config
+heroku logs
+heroku open
+
+#reference
+https://devcenter.heroku.com/articles/getting-started-with-symfony
