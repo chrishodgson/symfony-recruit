@@ -1,5 +1,10 @@
 doctrine_migrations:
-    dir_name: '%kernel.project_dir%/src/Migrations'
+    # MySQL migrations folder
+#    dir_name: '%kernel.project_dir%/src/Migrations/mysql'
+
+    # PostgreSQL migrations folder
+    dir_name: '%kernel.project_dir%/src/Migrations/psql'
+
     # namespace is arbitrary but should be different from App\Migrations
     # as migrations classes should NOT be autoloaded
     namespace: DoctrineMigrations

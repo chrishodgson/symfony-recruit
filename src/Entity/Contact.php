@@ -38,7 +38,7 @@ class Contact
 
     /**
      * @var string|null
-     * @ORM\Column(type="string", length=5, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $landline;
 

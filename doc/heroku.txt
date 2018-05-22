@@ -1,0 +1,2 @@
+config/packages/doctrine.yaml
+config/packages/doctrine_migrations.yaml
