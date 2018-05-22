@@ -10,7 +10,13 @@
 #        permanent: true
 
 homepage:
-    path: /
-    defaults:
-        _controller: FrameworkBundle:Template:template
-        template:    welcome.html.twig
+  path: /
+  defaults:
+    _controller: FrameworkBundle:Template:template
+    template:    welcome.html.twig
+
+homepage:
+  path: /test
+  defaults:
+    _controller: FrameworkBundle:Template:template
+    template:    welcome.html.twig

@@ -3,6 +3,7 @@ git push heroku master
 heroku config
 heroku logs
 heroku open
+heroku run [command]
 
 #reference
 https://devcenter.heroku.com/articles/getting-started-with-symfony
