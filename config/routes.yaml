@@ -15,8 +15,8 @@ homepage:
     _controller: FrameworkBundle:Template:template
     template:    welcome.html.twig
 
-homepage:
+test:
   path: /test
   defaults:
     _controller: FrameworkBundle:Template:template
-    template:    welcome.html.twig
+    template:    test.html.twig
