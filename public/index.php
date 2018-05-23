@@ -24,6 +24,12 @@ if ($debug) {
     Debug::enable();
 }
 
+// added for heroku deployment
+if ($trustedProxies = $_SERVER['REMOTE_ADDR'] ?? false) {
+    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_AWS_ELB);
+//    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+}
+
 if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
     echo 'TRUSTED_PROXIES ' . $_SERVER['TRUSTED_PROXIES'];
     Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
@@ -35,13 +41,6 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
 
 $kernel = new Kernel($env, $debug);
 $request = Request::createFromGlobals();
-
-// heroku
-if ($trustedProxies = $_SERVER['REMOTE_ADDR'] ?? false) {
-    #Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_AWS_ELB);
-    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
-}
-
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
