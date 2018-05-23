@@ -25,6 +25,7 @@ if ($debug) {
 }
 
 if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
+    echo '$trustedProxies ' . $trustedProxies .PHP_EOL;
     Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
 }
 
@@ -34,6 +35,11 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
 
 $kernel = new Kernel($env, $debug);
 $request = Request::createFromGlobals();
+
+//Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')]);
+//Request::setTrustedHeaderName(Request::HEADER_FORWARDED, null);
+//Request::setTrustedHeaderName(Request::HEADER_CLIENT_HOST, null);
+
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
