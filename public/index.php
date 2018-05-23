@@ -24,13 +24,15 @@ if ($debug) {
     Debug::enable();
 }
 
-//if ($trustedProxies = $_SERVER['REMOTE_ADDR'] ?? false) {
-//    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
-//}
-//
-//if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
-//    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
-//}
+if ($trustedProxies = $_SERVER['REMOTE_ADDR'] ?? false) {
+    echo 'REMOTE_ADDR ' . $_SERVER['REMOTE_ADDR'];
+    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+}
+
+if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
+    echo 'TRUSTED_PROXIES ' . $_SERVER['TRUSTED_PROXIES'];
+    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+}
 
 if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
     Request::setTrustedHosts(explode(',', $trustedHosts));
