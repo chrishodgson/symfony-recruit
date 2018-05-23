@@ -39,8 +39,9 @@ $request = Request::createFromGlobals();
 // heroku
 if ($trustedProxies = $_SERVER['REMOTE_ADDR'] ?? false) {
     echo 'REMOTE_ADDR ' . $_SERVER['REMOTE_ADDR'];
-    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_AWS_ELB);
+    #Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_AWS_ELB);
     #Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+    Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
 }
 
 $response = $kernel->handle($request);
