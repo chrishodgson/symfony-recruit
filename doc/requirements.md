@@ -1,7 +1,6 @@
 
-MVP requirements:
+Initial (MVP) requirements:
 ------------------------
-done:
 - contacts
 - contacts (latest activity)
 - contacts filtered on name and whether they want to be notified
@@ -9,19 +8,22 @@ done:
 - pagination
 - add, delete contacts
 - add, delete activities
+- fixture dummy data
+- docker, heroku 
+- PostgreSQL, MySQL
 
+Testing (todo):
+------------------------
+- unit tests using phpunit
+- functional tests using selenium
 
-Post MVP requirements:
+Future requirements:
 ------------------------
 - list, add and delete companies
 - dynamically create a new contact and company whilst adding an activity
 - contacts search suggestions using ajax lookup
-- unit tests
-- functional tests
 - edit screens
 - job applications
-- login/logout
-
-application schema:
-job title, job spec, start date, daily rate, duration, hours, days remote, contact_id,
+schema: job title, job spec, start date, daily rate, duration, hours, days remote, contact_id,
 status (Submitted/On Hold/Successful/Unsuccessful))
+

@@ -1,9 +1,0 @@
-#commands
-git push heroku master
-heroku config
-heroku logs --tail
-heroku open
-heroku run bash
-
-#reference
-https://devcenter.heroku.com/articles/getting-started-with-symfony
