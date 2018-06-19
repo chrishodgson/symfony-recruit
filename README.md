@@ -1,22 +1,30 @@
-### Description
+
+Description
+------------------------
 Recruit is a simple web application built with Symfony 4 and bootstrap 4 to keep track of any communications 
 with recruiters. It has been built with contractors in mind who are regularly contacted by recruitment agents and 
-offers a central place to keep a record of anhy phone calls, voicemails, emails or linkedin messages. It consists of 
+offers a central place to keep a record of phone calls, voicemails, emails or linkedin messages. It consists of 
 Contacts each of which have Activities associated. 
 
-### System requirements
-- PHP >= 7.1
-- PostgreSQL or MySQL  
-- composer # See https://getcomposer.org/ 
+Docker install
+------------------------
 
-### Installation 
-- clone the repository: `git clone https://github.com/chrishodgson/recruit.git` 
-- cd into the `recruit` folder                     
-- install dependencies: `composer install`  
-- edit `DATABASE_URL` in `.env`
-- note: by default, the app is configured to used PostgreSQL. To use MySQL, 
-edit `config/packages/doctrine.yaml` and `config/packages/doctrine_migrations.yaml`  
-- create the database: `bin/console doctrine:database:create`  
-- apply the database schema: `bin/console doctrine:migrations:migrate`  
-- load some dummy data (optional): `bin/console doctrine:fixtures:load`  
-- run the stand alone web server: `bin/console server:run`
+Recommended way to install is via docker...
+
+- install docker # See https://docs.docker.com/ 
+- clone the repository: `git clone https://github.com/chrishodgson/recruit.git && cd recruit`
+- build and start the docker containers - `cd docker/lamp-stack && docker-compose build && docker-compose up -d`
+- install dependencies - `docker-compose exec php composer install`
+- apply the schema - `docker-compose exec php bin/console doctrine:migrations:migrate`
+- load dummy data (optional step) - `docker-compose exec php bin/console doctrine:fixtures:load`
+- load in browser - `open localhost:8001`
+
+Manual install
+------------------------
+
+see docs/manual-install.md
+
+Heroku install
+------------------------
+
+see docs/heroku.md

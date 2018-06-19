@@ -1,0 +1,51 @@
+version: '3'
+services:
+    apache:
+        build: ./apache
+        container_name: recruit_apache
+        ports:
+          - 8001:80
+        volumes:
+          - ./config/vhosts:/etc/apache2/sites-enabled
+          - ..:/home/wwwroot
+        depends_on:
+          - php
+
+    mysql:
+        image: mysql:5
+        container_name: recruit_mysql
+        volumes:
+            - ./data/db:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: recruit
+            MYSQL_USER: recruit
+            MYSQL_PASSWORD: recruit
+
+    php:
+        build: ./php
+        container_name: recruit_php
+        volumes:
+          - ..:/home/wwwroot
+        environment:
+          - maildev_host=recruit_maildev
+        depends_on:
+          - maildev
+          - mysql
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: recruit_phpmyadmin
+        environment:
+          PMA_HOST: mysql
+          PMA_PORT: 3306
+        ports:
+            - 8002:80
+        links:
+            - mysql
+
+    maildev:
+        image: djfarrelly/maildev
+        container_name: recruit_maildev
+        ports:
+          - 8003:80

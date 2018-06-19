@@ -1,5 +1,5 @@
 
-install dependencies
+Install dependencies
 ------------------------
 
 # note pagination bundle - requires translator
@@ -9,14 +9,14 @@ install dependencies
 `composer require debug orm-fixtures fzaninotto/Faker --dev`
 
 
-symfony config changes
+Symfony config changes
 ------------------------
 
 - enable boostrap in `twig.yaml` and `pagination.yaml`
 - enable csrf in `framework.yaml`
 - enable validation in `framework.yaml`
 
-useful commands
+Useful commands
 ------------------------
 
 - create the initial project - `composer create-project symfony/skeleton recruit` 
@@ -27,7 +27,7 @@ useful commands
 - create a migration - `bin/console make:migration`
 - apply a migration - `bin/console doctrine:migrations:migrate`
 
-optional packages
+Optional packages
 ------------------------
 
 # maker - `composer require maker`

@@ -8,8 +8,9 @@ install steps
 - Add PHP buildpack - `heroku buildpacks:set heroku/php`
 - Add postgreSQL addon - `heroku addons:create heroku-postgresql:hobby-dev`
 - Create symfony environment variables (change YOUR SECRET)- `heroku config:set APP_ENV=prod APP_SECRET=YOUR SECRET`
-- push the changes to Heroku - `git push heroku master`
-- open the app on Heroku - `heroku open`
+- Follow steps for `Using PostgreSQL instead of MySQL` in `manual-instal.md`
+- Push the changes to Heroku - `git push heroku master`
+- Open the app on Heroku - `heroku open`
 
 useful commands
 ------------------------
