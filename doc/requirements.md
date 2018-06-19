@@ -17,6 +17,10 @@ Testing (todo):
 - unit tests using phpunit
 - functional tests using selenium
 
+Bugs (todo):
+------------------------
+- contact list fails when a contact has no company associated 
+
 Future requirements:
 ------------------------
 - list, add and delete companies
