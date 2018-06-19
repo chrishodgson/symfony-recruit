@@ -15,7 +15,7 @@ Recommended way to install is via docker...
 - clone the repository: `git clone https://github.com/chrishodgson/recruit.git && cd recruit/docker/lamp-stack`
 - build and start the docker containers - `docker-compose build && docker-compose up -d`
 - install dependencies via composer - `docker-compose exec php composer install`
-- apply the schema - `docker-compose exec php bin/console doctrine:migrations:migrate`
+- apply the schema via doctrine - `docker-compose exec php bin/console doctrine:migrations:migrate`
 - load dummy data (optional step) - `docker-compose exec php bin/console doctrine:fixtures:load`
 - load app in web browser - `open localhost:8001`
 
