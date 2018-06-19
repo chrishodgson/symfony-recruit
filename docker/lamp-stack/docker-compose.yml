@@ -7,7 +7,7 @@ services:
           - 8001:80
         volumes:
           - ./config/vhosts:/etc/apache2/sites-enabled
-          - ..:/home/wwwroot
+          - ../..:/home/wwwroot
         depends_on:
           - php
 
@@ -26,7 +26,7 @@ services:
         build: ./php
         container_name: recruit_php
         volumes:
-          - ..:/home/wwwroot
+          - ../..:/home/wwwroot
         environment:
           - maildev_host=recruit_maildev
         depends_on:
