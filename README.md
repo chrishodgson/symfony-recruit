@@ -12,12 +12,12 @@ Docker install
 Recommended way to install is via docker...
 
 - install docker # See https://docs.docker.com/ 
-- clone the repository: `git clone https://github.com/chrishodgson/recruit.git && cd recruit`
-- build and start the docker containers - `cd docker/lamp-stack && docker-compose build && docker-compose up -d`
-- install dependencies - `docker-compose exec php composer install`
+- clone the repository: `git clone https://github.com/chrishodgson/recruit.git && cd recruit/docker/lamp-stack`
+- build and start the docker containers - `docker-compose build && docker-compose up -d`
+- install dependencies via composer - `docker-compose exec php composer install`
 - apply the schema - `docker-compose exec php bin/console doctrine:migrations:migrate`
 - load dummy data (optional step) - `docker-compose exec php bin/console doctrine:fixtures:load`
-- load in browser - `open localhost:8001`
+- load app in web browser - `open localhost:8001`
 
 Manual install
 ------------------------
