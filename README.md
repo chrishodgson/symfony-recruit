@@ -12,7 +12,7 @@ Docker install
 Recommended way to install is via docker...
 
 - install docker # See https://docs.docker.com/ 
-- clone the repository: `git clone https://github.com/chrishodgson/recruit.git && cd recruit/docker/lamp-stack`
+- clone the repository: `git clone https://github.com/chrishodgson/recruit.git && cd recruit/docker/apache-mysql`
 - build and start the docker containers - `docker-compose build && docker-compose up -d`
 - install dependencies via composer - `docker-compose exec php composer install`
 - apply the schema via doctrine - `docker-compose exec php bin/console doctrine:migrations:migrate`
