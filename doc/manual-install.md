@@ -26,6 +26,5 @@ By default, the app is configured to used MySQL. To use PostgreSQL, follow these
 
 Run the standalone web server
 ------------------------
-
 - run the stand alone web server: `bin/console server:run`
 

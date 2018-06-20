@@ -13,4 +13,5 @@
 
 ###> docker ###
 docker/*/data/*
+docker/*/logs/*
 ###< docker ###
