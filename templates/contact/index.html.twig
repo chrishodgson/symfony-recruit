@@ -15,7 +15,7 @@
             {% for item in pagination %}
                 <tr scope="row">
                     <td><a href="{{ path('contact_view', {id: item.id}) }}">{{ item.name }}</a></td>
-                    <td>{{ item.company.name }}</td>
+                    <td>{{ item.company ? item.company.name : '' }}</td>
                     <td>
                         {% if item.landline %}
                             <a href="tel:{{ item.landline }}">Landline</a>

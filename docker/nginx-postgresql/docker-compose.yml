@@ -1,6 +1,6 @@
 version: '2'
 services:
-    postgres:
+    db:
         image: postgres
         ports:
             - '5433:5432'
@@ -12,8 +12,8 @@ services:
             - ../../:/var/www/symfony:cached
             - ./logs/symfony:/var/www/symfony/var/logs:cached
         links:
-            - postgres
-    nginx:
+            - db
+    webserver:
         build: nginx
         ports:
             - '8001:80'

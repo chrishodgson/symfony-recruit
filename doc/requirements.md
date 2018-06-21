@@ -1,6 +1,7 @@
 
 Initial (MVP) requirements:
 ------------------------
+
 - contacts
 - contacts (latest activity)
 - contacts filtered on name and whether they want to be notified
@@ -14,15 +15,13 @@ Initial (MVP) requirements:
 
 Testing (todo):
 ------------------------
+
 - unit tests using phpunit
 - functional tests using selenium
 
-Bugs (todo):
-------------------------
-- contact list fails when a contact has no company associated 
-
 Future requirements:
 ------------------------
+
 - list, add and delete companies
 - dynamically create a new contact and company whilst adding an activity
 - contacts search suggestions using ajax lookup

@@ -1,6 +1,7 @@
 
 System requirements
 ------------------------
+
 - PHP >= 7.1
 - PostgreSQL or MySQL  
 - Composer # See https://getcomposer.org/ 
@@ -18,13 +19,14 @@ Steps
 
 Using PostgreSQL instead of MySQL 
 ------------------------
+
 By default, the app is configured to used MySQL. To use PostgreSQL, follow these steps as point 2 above:
-- `cp config/packages/doctrine_psql.yaml config/packages/doctrine.yaml` 
-- `cp config/packages/doctrine_migrations_psql.yaml config/packages/doctrine_migrations.yaml`
-- uncomment the contents of these yaml files 
-- edit `DATABASE_URL` setting in `.env`
+- comment out the mysql sections and uncomment the postgresql sections in `config/packages/doctrine_migrations.yaml ` 
+and `config/packages/doctrine.yaml`  
+- uncomment appropriate `DATABASE_URL` setting in `.env`
 
 Run the standalone web server
 ------------------------
+
 - run the stand alone web server: `bin/console server:run`
 

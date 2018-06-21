@@ -8,7 +8,6 @@ Install dependencies
 # debug includes phpunit bridge, profiler, monolog and dump
 `composer require debug orm-fixtures fzaninotto/Faker --dev`
 
-
 Symfony config changes
 ------------------------
 

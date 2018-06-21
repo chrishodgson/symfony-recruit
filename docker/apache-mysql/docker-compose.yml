@@ -1,6 +1,6 @@
 version: '3'
 services:
-    apache:
+    webserver:
         build: ./apache
         container_name: recruit_apache
         ports:
@@ -11,7 +11,7 @@ services:
         depends_on:
           - php
 
-    mysql:
+    db:
         image: mysql:5
         container_name: recruit_mysql
         volumes:
@@ -31,18 +31,18 @@ services:
           - maildev_host=recruit_maildev
         depends_on:
           - maildev
-          - mysql
+          - db
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         container_name: recruit_phpmyadmin
         environment:
-          PMA_HOST: mysql
+          PMA_HOST: db
           PMA_PORT: 3306
         ports:
             - 8002:80
         links:
-            - mysql
+            - db
 
     maildev:
         image: djfarrelly/maildev
